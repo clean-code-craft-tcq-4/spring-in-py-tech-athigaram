@@ -1,5 +1,7 @@
 import unittest
-import statistics
+import statistics 
+from alerts import *
+import math as maths
 
 class StatsTest(unittest.TestCase):
   def test_report_min_max_avg(self):
@@ -11,10 +13,10 @@ class StatsTest(unittest.TestCase):
 
   def test_avg_is_nan_for_empty_input(self):
     computedStats = statistics.calculateStats([])
-    # All fields of computedStats (average, max, min) must be
-    # nan (not-a-number), as defined in the math package
-    # Design the assert here.
-    # Use nan and isnan in https://docs.python.org/3/library/math.html
+    self.assertTrue(maths.isnan(computedStats["avg"]))
+    self.assertTrue(maths.isnan(computedStats["max"]))
+    self.assertTrue(maths.isnan(computedStats["min"]))
+   
 
   def test_raise_alerts_when_max_above_threshold(self):
     emailAlert = EmailAlert()
