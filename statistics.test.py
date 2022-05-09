@@ -1,7 +1,7 @@
 import unittest
 import statistics 
 from alerts import *
-import maths
+import math as maths
 
 class StatsTest(unittest.TestCase):
   def test_report_min_max_avg(self):
