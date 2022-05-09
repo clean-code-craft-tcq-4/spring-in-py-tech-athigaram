@@ -1,11 +1,13 @@
 import math as maths
-import statistics as stats
+
+def avg(numbers):
+    return sum(numbers)/len(numbers)
 
 def calculateStats(numbers):
     if not numbers or any(maths.isnan(number) for number in numbers):
         return statsAssigner(maths.nan,maths.nan,maths.nan)
     else:
-        return statsAssigner(stats.mean(numbers),min(numbers),max(numbers))
+        return statsAssigner(avg(numbers),min(numbers),max(numbers))
 
 def statsAssigner(stats_avg,stats_min,stats_max):
     computedStats = {}
